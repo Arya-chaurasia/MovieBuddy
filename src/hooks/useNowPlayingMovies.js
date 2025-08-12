@@ -4,7 +4,6 @@ import { API_OPTIONS } from "../utils/constants";
 import { addNowPlayingMovies } from "../utils/slices/movieSlice";
 
 const useNowPlayingMovies = () => {
-  // Fetch Data from TMDB API and update store
   const dispatch = useDispatch();
 
   const nowPlayingMovies = useSelector(
@@ -13,7 +12,7 @@ const useNowPlayingMovies = () => {
 
   const getNowPlayingMovies = async () => {
     const data = await fetch(
-        "/tmdb/movie/now_playing?page=1",
+      "https://api.themoviedb.org/3/movie/now_playing?page=1",
       API_OPTIONS
     );
     const json = await data.json();
