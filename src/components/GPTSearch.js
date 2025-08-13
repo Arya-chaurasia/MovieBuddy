@@ -10,6 +10,7 @@ const GPTSearch = () => {
         <img className="w-full h-full object-cover" src={BG_URL} alt="logo" />
       </div>
       <div className="">
+      
         <GptSearchBar />
         <GptMovieSuggestions />
       </div>
