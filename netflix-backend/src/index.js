@@ -6,22 +6,12 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = ["https://gem-flix-ai.vercel.app", "http://localhost:3000"];
+const corsOptions = {
+  origin: ["https://gem-flix-ai.vercel.app", "http://localhost:3000"],
+  credentials: true,
+};
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
+app.use(cors(corsOptions));
 
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
