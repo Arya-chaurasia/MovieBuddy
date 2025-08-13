@@ -8,7 +8,7 @@ app.use(express.json());
 
 const corsOptions = {
   origin: ["https://gem-flix-ai.vercel.app", "http://localhost:3000"],
-  credentials: true,
+  //credentials: true,
 };
 
 app.use(cors(corsOptions));
