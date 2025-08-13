@@ -8,9 +8,11 @@ app.use(express.json());
 
 app.use(cors({
   origin: ["https://gem-flix-ai.vercel.app", "http://localhost:3000"],
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
 }));
+
+app.options("*", cors()); 
 
 
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
