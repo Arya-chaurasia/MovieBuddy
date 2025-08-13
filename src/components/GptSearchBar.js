@@ -35,7 +35,7 @@ const handleGptSearchClick = async () => {
     ". only give me names of 5 movies, comma separated like the example result given ahead. Example Result: saiyaara, sarzameen, Dhamal, Golmaal, Koi Mil Gaya";
 
   try {
-    const response = await fetch("http://localhost:4000/api/gemini", {
+    const response = await fetch("https://gem-flix-backend.onrender.com/api/gemini", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
