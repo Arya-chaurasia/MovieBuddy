@@ -3,8 +3,15 @@ const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
-app.use(cors({ origin: "*" }));
+
 app.use(express.json());
+
+app.use(cors({
+  origin: ["https://gem-flix-ai.vercel.app", "http://localhost:3000"],
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+}));
+
 
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
